@@ -1,1 +1,3 @@
-# whtc
+# whtc (warhammer toolchain)
+
+### About
