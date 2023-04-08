@@ -1,0 +1,177 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+// ---------------------------------------
+// ---------------- TABLEs ---------------
+// ---------------------------------------
+
+model Ability {
+  dbId             Int      @id @default(autoincrement())
+  id               Int
+  type             String?
+  name             String
+  legend           String?
+  is_other_wargear Boolean
+  faction_id       String
+  description      String
+  createdAt        DateTime @default(now())
+}
+
+model Datasheet {
+  dbId             Int      @id @default(autoincrement())
+  id               Int      @unique
+  name             String
+  link             String
+  faction_id       String
+  source_id        Int?
+  role             String?
+  unit_composition String?
+  transport        String?
+  power_points     String?
+  priest           String?
+  psyker           String?
+  open_play_only   Boolean
+  crusade_only     Boolean
+  virtual          Boolean
+  Cost             Int?
+  cost_per_unit    Boolean?
+  createdAt        DateTime @default(now())
+}
+
+model DatasheetsAbility {
+  dbId             Int      @id @default(autoincrement())
+  datasheetId      Int
+  line             Int
+  ability_id       Int
+  is_index_wargear Boolean
+  cost             String
+  model            String?
+  is_other_wargear Boolean
+  createdAt        DateTime @default(now())
+}
+
+model DatasheetsDamage {
+  dbId        Int      @id @default(autoincrement())
+  datasheetId Int
+  line        Int
+  Col1        String
+  Col2        String
+  Col3        String?
+  Col4        String?
+  Col5        String?
+  createdAt   DateTime @default(now())
+}
+
+model DatasheetsKeyword {
+  dbId               Int      @id @default(autoincrement())
+  datasheetId        Int
+  keyword            String
+  model              String?
+  is_faction_keyword Boolean
+  createdAt          DateTime @default(now())
+}
+
+model DatasheetsModel {
+  dbId                   Int      @id @default(autoincrement())
+  datasheet_id           Int
+  line                   Int
+  name                   String
+  M                      String
+  WS                     String?
+  BS                     String?
+  S                      String?
+  T                      String
+  W                      String
+  A                      String?
+  Ld                     String?
+  Sv                     String
+  Cost                   Int?
+  cost_description       String?
+  models_per_unit        String?
+  cost_including_wargear Boolean
+  base_size              String?
+  base_size_descr        String?
+  createdAt              DateTime @default(now())
+}
+
+model DatasheetsOption {
+  dbId             Int      @id @default(autoincrement())
+  datasheet_id     Int
+  line             Int
+  button           String?
+  description      String?
+  is_index_wargear Boolean
+  createdAt        DateTime @default(now())
+}
+
+model DatasheetsWargear {
+  dbId             Int      @id @default(autoincrement())
+  datasheet_id     Int
+  line             Int
+  wargear_id       String
+  cost             String
+  is_index_wargear Boolean
+  model            String?
+  is_upgrade       Boolean
+  createdAt        DateTime @default(now())
+}
+
+model Faction {
+  dbId          Int      @id @default(autoincrement())
+  id            String   @unique
+  name          String
+  link          String
+  is_subfaction Boolean
+  parent_id     String?
+  createdAt     DateTime @default(now())
+}
+
+model PsychicPower {
+  dbId         Int      @id @default(autoincrement())
+  roll         Int?
+  name         String
+  faction_id   String
+  faction_name String
+  legend       String?
+  type         String
+  description  String
+  id           Int      @unique
+  createdAt    DateTime @default(now())
+}
+
+model Wargear {
+  dbId         Int      @id @default(autoincrement())
+  id           String   @unique
+  name         String
+  type         String
+  description  String?
+  source_id    String?
+  is_relic     Boolean
+  faction_id   String
+  faction_name String
+  legend       String?
+  createdAt    DateTime @default(now())
+}
+
+model WargearList {
+  dbId       Int      @id @default(autoincrement())
+  wargear_id String
+  line       Int
+  name       String
+  Range      String
+  type       String
+  S          String
+  AP         String?
+  D          String
+  abilities  String?
+  createdAt  DateTime @default(now())
+}

@@ -24,5 +24,5 @@ app.get("/check", async (req: Request, res: Response) => { res.status(200).send(
 // Start the Express server
 app.listen(port, () => {
     // eslint-disable-next-line no-console
-    console.log(`⚡️[server]: whtc-api: http://localhost:${port}/api/data`);
+    console.log(`⚡️[server]: whtc-api: http://localhost:${port}/api/data/update`);
 });
