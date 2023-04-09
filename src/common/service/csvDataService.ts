@@ -1,5 +1,5 @@
 import { cleanString, sanitizeString } from "../helper/stringHelpers";
-import { CsvConfig, CsvConfigFull } from "../helper/csvConfig";
+import { CsvConfig } from "./csvConfigService";
 import { parse } from "csv-parse/sync";
 import fetch from "node-fetch";
 import xss from "xss";
@@ -15,11 +15,11 @@ export class CsvDataService {
     // Fetch and parse the Wahapedia csv files
     // (csv files are picked, based on the csv-config)
     //
-    public async getCsvData(): Promise<{ data: Map<CsvConfig, any[]>, output: Array<string> }> {
+    public async getCsvData(csvConfigFull: CsvConfig[]): Promise<{ data: Map<CsvConfig, any[]>, output: Array<string> }> {
         try {
             const resultOutput = new Array<string>();
             const resultData = new Map<CsvConfig, any[]>();
-            for (const csvConfig of CsvConfigFull) {
+            for (const csvConfig of csvConfigFull) {
                 const csvStr = await this.readCsvFromUrl(csvConfig.url);
                 const csvData = this.parseCsvContent(csvStr, csvConfig);
                 resultData.set(csvConfig, csvData);

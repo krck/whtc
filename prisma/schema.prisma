@@ -42,7 +42,7 @@ model Datasheet {
   open_play_only   Boolean
   crusade_only     Boolean
   virtual          Boolean
-  Cost             Int?
+  cost             Int?
   cost_per_unit    Boolean?
   createdAt        DateTime @default(now())
 }
@@ -63,11 +63,11 @@ model DatasheetsDamage {
   dbId        Int      @id @default(autoincrement())
   datasheetId Int
   line        Int
-  Col1        String
-  Col2        String
-  Col3        String?
-  Col4        String?
-  Col5        String?
+  col1        String
+  col2        String
+  col3        String?
+  col4        String?
+  col5        String?
   createdAt   DateTime @default(now())
 }
 
