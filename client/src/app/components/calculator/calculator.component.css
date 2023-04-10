@@ -1,0 +1,64 @@
+body {
+    font-family: 'Tahoma', sans-serif;
+}
+
+div.frame {
+    margin: 5px;
+    padding: 5px;
+    width: 500px;
+    border-radius: 5px;
+    border: 2px solid #ccc;
+}
+
+div.container {
+    display: flex;
+}
+
+div.child {
+    flex: 1;
+    margin: auto;
+}
+
+p {
+    margin: 0px 0px 5px 0px;
+    text-align: center;
+    font-weight: bold;
+}
+
+ul {
+    list-style: none;
+    width: 100%;
+    margin: auto;
+    padding: 0;
+}
+
+label {
+    display: inline-block;
+    width: 120px;
+    text-align: right;
+}
+
+input.number {
+    width: 50px;
+}
+
+select.list {
+    width: 58px;
+}
+
+input.check {
+    width: 20px;
+}
+
+button {
+    padding: 5px;
+    margin: 5px;
+    text-align: center;
+    font-weight: bold;
+}
+
+span {
+    padding: 5px;
+    text-align: center;
+    font-weight: bold;
+}

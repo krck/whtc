@@ -1,0 +1,174 @@
+
+query allAbilities {
+    abilities { 
+        id
+        type
+        name
+        legend
+        is_other_wargear
+        faction_id
+        description 
+        createdAt
+    }
+}
+
+query allDatasheets {
+    datasheets { 
+        id
+        name
+        link
+        faction_id
+        source_id
+        role
+        unit_composition
+        transport 
+        power_points
+        priest
+        psyker
+        open_play_only
+        crusade_only
+        virtual 
+        cost 
+        cost_per_unit
+        createdAt
+    }
+}
+
+query allDatasheetsAbilities {
+    datasheetsAbilities { 
+        datasheetId 
+        line
+        ability_id
+        is_index_wargear
+        cost
+        model
+        is_other_wargear
+        createdAt
+    }
+}
+
+query allDatasheetsDamages {
+    datasheetsDamages {
+        datasheetId
+        line 
+        col1 
+        col2 
+        col3 
+        col4 
+        col5 
+        createdAt 
+    }
+}
+
+query allDatasheetsKeywords {
+    datasheetsKeywords { 
+        datasheetId 
+        keyword 
+        model
+        is_faction_keyword
+        createdAt 
+    }
+}
+
+query allDatasheetsModels {
+    datasheetsModels { 
+        datasheet_id
+        line
+        name
+        M 
+        WS
+        BS
+        S 
+        T 
+        W 
+        A 
+        Ld
+        Sv
+        Cost 
+        cost_description
+        models_per_unit 
+        cost_including_wargear
+        base_size 
+        base_size_descr 
+        createdAt
+    } 
+}
+
+query allDatasheetsOptions {
+    datasheetsOptions { 
+        datasheet_id
+        line
+        button
+        description 
+        is_index_wargear
+        createdAt 
+    } 
+}
+
+query allDatasheetsWargears {
+    datasheetsWargears { 
+        datasheet_id
+        line
+        wargear_id
+        cost
+        is_index_wargear
+        model
+        is_upgrade
+        createdAt 
+    } 
+}
+
+query allFactions {
+    factions {
+        id 
+        name 
+        link 
+        is_subfaction
+        parent_id
+        createdAt 
+    }
+}
+
+query allPsychicPowers {
+    psychicPowers { 
+        roll 
+        name
+        faction_id
+        faction_name
+        legend
+        type
+        description 
+        id
+        createdAt
+    }
+}
+
+query allWargears {
+    wargears { 
+        id
+        name
+        type
+        description 
+        source_id 
+        is_relic
+        faction_id
+        faction_name
+        legend
+        createdAt
+    }
+}
+
+query allWargearLists {
+    wargearLists { 
+        wargear_id
+        line
+        name
+        Range 
+        type
+        S 
+        AP
+        D 
+        abilities 
+        createdAt
+    }
+}

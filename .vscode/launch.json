@@ -7,16 +7,24 @@
         {
             "type": "node",
             "request": "launch",
-            "name": "Debug gat-api",
-            "preLaunchTask": "npm: build",
-            "envFile": "${workspaceFolder}\\.env",
-            "program": "${workspaceFolder}\\src\\index.ts",
+            "name": "Debug whtc-api",
+            "preLaunchTask": "npm: build:api",
+            "envFile": "${workspaceFolder}\\server\\.env",
+            "program": "${workspaceFolder}\\server\\src\\index.ts",
             "skipFiles": [
                 "<node_internals>/**"
             ],
             "outFiles": [
-                "${workspaceFolder}/**/*.js"
+                "${workspaceFolder}/server/**/*.js"
             ]
+        },
+        {
+            "name": "Debug whtc-web (start)",
+            "type": "msedge",
+            "request": "launch",
+            "preLaunchTask": "npm: start:web",
+            "url": "http://localhost:4200/",
+            "webRoot": "${workspaceFolder}\\client"
         }
     ]
 }
